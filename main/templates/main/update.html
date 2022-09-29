@@ -1,0 +1,16 @@
+{% extends 'layout/basic.html' %}
+
+{% block title %}Update{% endblock %}
+
+{% block content %}
+  {% for t in transport %}
+      <form method="post">
+        {% csrf_token %}
+        <input type="text" name="pk" value="{{ t.pk }}" style="display: none;">
+        <label>Name:&nbsp;<input type="text" name="name" value="{{ t.name }}"></label>
+        <label>&nbsp;Description&nbsp;<input type="text" name="description" value="{{ t.description }}"></label>
+        <label>&nbsp;Can move&nbsp;<input type="checkbox" {{ t.can_move|yesno:"checked,"}} name="can_move"></label>
+        <input type="submit" value="Update">
+      </form>
+  {% endfor %}
+{% endblock %}

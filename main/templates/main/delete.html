@@ -1,0 +1,14 @@
+{% extends 'layout/basic.html' %}
+
+{% block title %}Delete{% endblock %}
+
+{% block content %}
+    {% for t in transport %}
+        <form method="post">
+            {% csrf_token %}
+            <p>{{ t.name }} {{ t.description }} {{ t.can_move|yesno:"на ходу,не двигается" }}</p>
+            <input type="text" name="pk" value="{{ t.pk }}" style="display: none;">
+            <input type="submit" value="Delete">
+        </form>
+    {% endfor %}
+{% endblock %}

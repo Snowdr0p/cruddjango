@@ -1,0 +1,9 @@
+{% extends 'layout/basic.html' %}
+
+{% block title %}Read{% endblock %}
+
+{% block content %}
+    {% for t in transport %}
+        <p>{{ t.name }} {{ t.description }} {{ t.can_move|yesno:"на ходу,не двигается" }}</p>
+    {% endfor %}
+{% endblock %}

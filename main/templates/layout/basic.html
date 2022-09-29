@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Django CRUD | {% block title %}Главная{% endblock %}</title>
+    <style>
+        li {
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1 align="center">Django CRUD</h1>
+    <nav>
+        <ul>
+            <li><a href="{% url 'create' %}"><b>C</b>reate</a></li>
+            <li><a href="{% url 'read' %}"><b>R</b>ead</a></li>
+            <li><a href="{% url 'update' %}"><b>U</b>pdate</a></li>
+            <li><a href="{% url 'delete' %}"><b>D</b>elete</a></li>
+        </ul>
+    </nav>
+    <section>
+        {% block content %}
+        {% endblock %}
+    </section>
+</body>
+</html>
